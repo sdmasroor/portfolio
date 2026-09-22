@@ -1,0 +1,94 @@
+@import '../styles/variables.scss';
+
+.navContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.75rem;
+
+  @media (max-width: 960px) {
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+}
+
+.navInner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  background: var(--bg-card);
+  border-radius: 20px;
+  box-shadow: var(--shadow-main);
+  border: 1px solid var(--border-subtle);
+  overflow-x: auto;
+  max-width: 100%;
+
+  @media (max-width: $bp-mobile) {
+    gap: 0.4rem;
+    padding: 0.5rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+.tabBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  width: 78px;
+  height: 78px;
+  border-radius: 16px;
+  background: var(--bg-card-sub);
+  color: var(--text-secondary);
+  transition: all $transition-base;
+  user-select: none;
+  border: 1px solid transparent;
+
+  &:hover {
+    color: var(--text-primary);
+    transform: translateY(-2px);
+    background: var(--bg-card-hover);
+  }
+
+  @media (max-width: $bp-mobile) {
+    width: auto;
+    flex: 1;
+    height: 64px;
+    padding: 0.4rem;
+  }
+}
+
+.tabActive {
+  background: $gradient-brand !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 20px rgba(250, 82, 82, 0.35);
+  transform: translateY(-2px);
+
+  .iconBox {
+    color: #ffffff;
+  }
+
+  .tabLabel {
+    color: #ffffff;
+    font-weight: 600;
+  }
+}
+
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform $transition-fast;
+}
+
+.tabLabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+
+  @media (max-width: $bp-mobile) {
+    font-size: 0.68rem;
+  }
+}

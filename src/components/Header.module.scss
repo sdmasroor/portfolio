@@ -1,0 +1,158 @@
+@import '../styles/variables.scss';
+
+.header {
+  width: 100%;
+  padding: 1.75rem 0 1.25rem 0;
+  position: relative;
+  z-index: 20;
+
+  @media (max-width: $bp-tablet) {
+    padding: 1.25rem 0 1rem 0;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: $bp-tablet) {
+    padding: 0 1rem;
+  }
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  user-select: none;
+}
+
+.logoSignature {
+  font-family: $font-script;
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  @include text-gradient($gradient-brand);
+
+  @media (max-width: $bp-mobile) {
+    font-size: 1.85rem;
+  }
+}
+
+.logoDot {
+  color: $accent-red;
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.badgeStaff {
+  margin-left: 0.6rem;
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  background: var(--bg-card-sub);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+
+  @media (max-width: $bp-mobile) {
+    display: none;
+  }
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cmdButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 12px;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.8rem;
+  font-family: $font-mono;
+  box-shadow: var(--shadow-card);
+  transition: all $transition-base;
+
+  &:hover {
+    color: var(--text-primary);
+    border-color: rgba(250, 82, 82, 0.4);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: $bp-mobile) {
+    display: none;
+  }
+}
+
+.cmdText {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.resumeHeaderBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.95rem;
+  border-radius: 12px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.82rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-card);
+  transition: all $transition-base;
+
+  &:hover {
+    color: #ffffff;
+    background: $gradient-brand;
+    border-color: transparent;
+    transform: translateY(-1px);
+  }
+}
+
+.themeToggle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-card);
+  transition: all $transition-base;
+
+  &:hover {
+    transform: rotate(15deg) scale(1.05);
+    border-color: rgba(250, 82, 82, 0.4);
+    color: $accent-red;
+  }
+}
+
+.sunIcon {
+  color: #f59e0b;
+  transition: transform $transition-smooth;
+}
+
+.moonIcon {
+  color: #818cf8;
+  transition: transform $transition-smooth;
+}

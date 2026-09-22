@@ -1,0 +1,230 @@
+@import '../styles/variables.scss';
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(16px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modalContainer {
+  background: #0d1322;
+  border: 1px solid rgba(0, 242, 254, 0.35);
+  border-radius: 18px;
+  max-width: 640px;
+  width: 100%;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+  animation: popIn 0.15s ease-out;
+
+  @keyframes popIn {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+.modalHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1.75rem 2rem 1.25rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: $font-mono;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: $accent-cyan;
+    margin-bottom: 0.35rem;
+  }
+
+  .title {
+    font-family: $font-display;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
+  }
+
+  .subtitle {
+    font-size: 0.88rem;
+    color: $text-secondary;
+  }
+
+  .closeBtn {
+    font-size: 1.8rem;
+    color: $text-muted;
+    line-height: 1;
+
+    &:hover {
+      color: #ffffff;
+    }
+  }
+}
+
+.modalBody {
+  padding: 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contactChips {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+
+  @media (max-width: $bp-mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contactChip {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover {
+    background: rgba(22, 34, 60, 0.8);
+    border-color: rgba(0, 242, 254, 0.3);
+  }
+
+  .chipIcon {
+    color: $accent-cyan;
+    flex-shrink: 0;
+  }
+
+  .chipInfo {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    .chipLabel {
+      font-family: $font-mono;
+      font-size: 0.66rem;
+      color: $text-muted;
+      text-transform: uppercase;
+    }
+
+    .chipVal {
+      font-family: $font-mono;
+      font-size: 0.76rem;
+      color: $text-primary;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .chipAction {
+    color: $text-muted;
+    margin-left: auto;
+
+    .check {
+      color: $accent-emerald;
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+  @media (max-width: $bp-mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  label {
+    font-family: $font-mono;
+    font-size: 0.74rem;
+    font-weight: 500;
+    color: $text-secondary;
+    text-transform: uppercase;
+  }
+
+  input,
+  textarea {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0.7rem 0.9rem;
+    font-family: $font-sans;
+    font-size: 0.92rem;
+    color: #ffffff;
+    outline: none;
+    transition: all $transition-fast;
+
+    &:focus {
+      border-color: $accent-cyan;
+      box-shadow: 0 0 12px rgba(0, 242, 254, 0.2);
+    }
+
+    &::placeholder {
+      color: $text-muted;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+}
+
+.successMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1rem;
+  gap: 1rem;
+
+  .successIcon {
+    color: $accent-emerald;
+  }
+
+  h4 {
+    font-family: $font-display;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  p {
+    font-size: 0.94rem;
+    color: $text-secondary;
+    max-width: 440px;
+    line-height: 1.6;
+  }
+}

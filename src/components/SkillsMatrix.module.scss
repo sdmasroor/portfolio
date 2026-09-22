@@ -1,0 +1,409 @@
+@import '../styles/variables.scss';
+
+.controlsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.categoryFilters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.catFilterBtn {
+  padding: 0.55rem 1.15rem;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  font-family: $font-mono;
+  font-size: 0.78rem;
+  color: $text-secondary;
+  transition: all $transition-fast;
+  cursor: pointer;
+
+  &:hover {
+    color: #ffffff;
+    background: rgba(22, 34, 60, 0.8);
+    border-color: rgba(0, 242, 254, 0.3);
+  }
+
+  &.activeCat {
+    background: linear-gradient(135deg, rgba(0, 242, 254, 0.2), rgba(56, 189, 248, 0.15));
+    border-color: $accent-cyan;
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 0 16px rgba(0, 242, 254, 0.25);
+  }
+}
+
+.searchAndToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+
+  @media (max-width: $bp-tablet) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.searchBox {
+  position: relative;
+  flex: 1;
+  max-width: 450px;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: $bp-tablet) {
+    max-width: 100%;
+  }
+
+  .searchIcon {
+    position: absolute;
+    left: 1rem;
+    color: $text-muted;
+    pointer-events: none;
+  }
+
+  .searchInput {
+    width: 100%;
+    padding: 0.65rem 2.2rem 0.65rem 2.6rem;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    font-family: $font-sans;
+    font-size: 0.88rem;
+    color: #ffffff;
+    outline: none;
+    transition: all $transition-fast;
+
+    &:focus {
+      border-color: $accent-cyan;
+      box-shadow: 0 0 12px rgba(0, 242, 254, 0.2);
+    }
+
+    &::placeholder {
+      color: $text-muted;
+    }
+  }
+
+  .clearSearch {
+    position: absolute;
+    right: 0.75rem;
+    font-size: 1.2rem;
+    color: $text-muted;
+    padding: 0 0.3rem;
+
+    &:hover {
+      color: #ffffff;
+    }
+  }
+}
+
+.viewToggleGroup {
+  display: flex;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 0.25rem;
+  gap: 0.25rem;
+}
+
+.toggleBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 6px;
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  color: $text-muted;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: $text-primary;
+  }
+
+  &.activeToggle {
+    background: rgba(255, 255, 255, 0.08);
+    color: $accent-cyan;
+    font-weight: 600;
+  }
+}
+
+// Tech Stacks Grid View
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+
+  @media (max-width: $bp-laptop) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $bp-mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.techCard {
+  background: rgba(11, 18, 33, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(16px);
+  transition: all $transition-smooth;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(0, 242, 254, 0.6), transparent);
+    opacity: 0;
+    transition: opacity $transition-fast;
+  }
+
+  &:hover {
+    background: rgba(16, 26, 48, 0.95);
+    border-color: rgba(0, 242, 254, 0.35);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+
+    &::before {
+      opacity: 1;
+    }
+
+    .techName {
+      color: $accent-cyan;
+    }
+  }
+}
+
+.techCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.iconBadge {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  @include flex-center;
+  flex-shrink: 0;
+}
+
+.iconCyan {
+  color: $accent-cyan;
+}
+.iconPurple {
+  color: $accent-purple;
+}
+.iconBlue {
+  color: $accent-blue;
+}
+.iconEmerald {
+  color: #34d399;
+}
+.iconAmber {
+  color: #fbbf24;
+}
+.iconGreen {
+  color: #10b981;
+}
+
+.metaBadges {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.expBadge {
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+.levelBadge {
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  color: $accent-purple;
+  background: rgba(129, 140, 248, 0.1);
+  border: 1px solid rgba(129, 140, 248, 0.2);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+.techCardBody {
+  margin-bottom: 1.25rem;
+
+  .techName {
+    font-family: $font-display;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.3;
+    margin-bottom: 0.25rem;
+    transition: color $transition-fast;
+  }
+
+  .techCategory {
+    font-family: $font-mono;
+    font-size: 0.72rem;
+    color: $accent-cyan;
+    margin-bottom: 0.65rem;
+  }
+
+  .techDesc {
+    font-size: 0.86rem;
+    color: $text-secondary;
+    line-height: 1.5;
+  }
+}
+
+.techCardFooter {
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tagPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.tagPill {
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  padding: 0.18rem 0.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  color: $text-muted;
+}
+
+.noResults {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  color: $text-muted;
+  font-size: 0.95rem;
+  background: rgba(15, 23, 42, 0.4);
+  border-radius: 12px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+// Metrics Mode
+.metricsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.metricsGroup {
+  background: rgba(11, 18, 33, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.75rem 2rem;
+  backdrop-filter: blur(16px);
+}
+
+.groupHeader {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 0.75rem;
+
+  .groupTitle {
+    font-family: $font-display;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
+  }
+
+  .groupDesc {
+    font-size: 0.86rem;
+    color: $text-secondary;
+  }
+}
+
+.metricsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.metricRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.metricMeta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  .metricName {
+    font-family: $font-display;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  .metricHighlight {
+    font-family: $font-mono;
+    font-size: 0.76rem;
+    color: $accent-cyan;
+    flex: 1;
+    margin-left: 0.75rem;
+  }
+
+  .metricPercent {
+    font-family: $font-mono;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #6ee7b7;
+  }
+}
+
+.metricBarTrack {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.metricBarFill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #00f2fe 0%, #38bdf8 50%, #818cf8 100%);
+  box-shadow: 0 0 8px rgba(0, 242, 254, 0.35);
+  transition: width 0.6s ease;
+}

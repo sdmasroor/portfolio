@@ -1,0 +1,256 @@
+@import '../../styles/variables.scss';
+
+.tabContent {
+  width: 100%;
+}
+
+.columnsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+  margin-bottom: 2.75rem;
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.columnHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.headerIconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconRed {
+  background: var(--card-tint-red);
+  color: $accent-red;
+  border: 1px solid var(--card-border-red);
+}
+
+.iconBlue {
+  background: var(--card-tint-blue);
+  color: $accent-blue;
+  border: 1px solid var(--card-border-blue);
+}
+
+.columnTitle {
+  font-size: 1.45rem;
+  font-weight: 700;
+  font-family: $font-display;
+  color: var(--text-primary);
+}
+
+.cardsStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.resumeCard {
+  padding: 1.5rem;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  transition: all $transition-base;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+  }
+}
+
+.cardRed {
+  background: var(--card-tint-red);
+  border-color: var(--card-border-red);
+}
+
+.cardPurple {
+  background: var(--card-tint-purple);
+  border-color: var(--card-border-purple);
+}
+
+.cardBlue {
+  background: var(--card-tint-blue);
+  border-color: var(--card-border-blue);
+}
+
+.cardAmber {
+  background: var(--card-tint-amber);
+  border-color: var(--card-border-amber);
+}
+
+.cardPeriod {
+  font-size: 0.8rem;
+  font-family: $font-mono;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+
+.cardRole {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.cardOrg {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.cardDesc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.bulletList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-top: 0.5rem;
+
+  li {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    position: relative;
+    padding-left: 1.1rem;
+
+    &::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: $accent-red;
+      font-size: 1.1rem;
+      line-height: 1;
+      top: 0.05rem;
+    }
+  }
+}
+
+.skillsSection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+}
+
+.sectionSubtitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  font-family: $font-display;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.progressList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.progressItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.progressLabelRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.progressName {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.progressPercent {
+  font-size: 0.8rem;
+  font-family: $font-mono;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.progressBarTrack {
+  width: 100%;
+  height: 7px;
+  border-radius: 9999px;
+  background: var(--bg-card-sub);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+}
+
+.progressBarFill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tagCloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.tagFeatured {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.95rem;
+  border-radius: 12px;
+  background: $gradient-brand;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(250, 82, 82, 0.25);
+  transition: transform $transition-fast;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.tagNormal {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 0.95rem;
+  border-radius: 12px;
+  background: var(--bg-card-sub);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: var(--text-primary);
+    border-color: rgba(250, 82, 82, 0.4);
+    transform: translateY(-2px);
+  }
+}

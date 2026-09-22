@@ -1,0 +1,87 @@
+@import '../styles/variables.scss';
+
+.footer {
+  width: 100%;
+  padding: 3rem 0 3.5rem 0;
+  margin-top: auto;
+  border-top: 1px solid $border-light;
+  background: rgba(5, 7, 13, 0.85);
+  backdrop-filter: blur(16px);
+  position: relative;
+  z-index: 10;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+
+  @media (max-width: $bp-tablet) {
+    padding: 0 1.25rem;
+  }
+}
+
+.footerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+
+  @media (max-width: $bp-mobile) {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+.copyright {
+  font-size: 0.9rem;
+  color: $text-muted;
+}
+
+.author {
+  color: $text-primary;
+  font-weight: 600;
+}
+
+.telemetryRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.timeTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid $border-light;
+  font-size: 0.78rem;
+  font-family: $font-mono;
+  color: $accent-cyan;
+}
+
+.scrollTopBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid $border-light;
+  color: $text-secondary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: #05070d;
+    background: $gradient-accent;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(0, 242, 254, 0.35);
+  }
+}

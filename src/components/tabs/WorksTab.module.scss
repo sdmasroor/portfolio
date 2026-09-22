@@ -1,0 +1,233 @@
+@import '../../styles/variables.scss';
+
+.tabContent {
+  width: 100%;
+}
+
+.filterBar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.filterPill {
+  padding: 0.5rem 1.15rem;
+  border-radius: 9999px;
+  background: var(--bg-card-sub);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid var(--border-subtle);
+  transition: all $transition-base;
+
+  &:hover {
+    color: var(--text-primary);
+    border-color: rgba(250, 82, 82, 0.4);
+    transform: translateY(-1px);
+  }
+}
+
+.filterPillActive {
+  background: $gradient-brand !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  border-color: transparent !important;
+  box-shadow: 0 4px 14px rgba(250, 82, 82, 0.35);
+}
+
+.worksGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.workCard {
+  background: var(--bg-card-sub);
+  border-radius: 20px;
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-main);
+    border-color: rgba(250, 82, 82, 0.35);
+
+    .cardBanner {
+      transform: scale(1.02);
+    }
+
+    .exploreBadge {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.cardBanner {
+  position: relative;
+  height: 190px;
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-subtle);
+  transition: transform $transition-smooth;
+}
+
+.bannerAi {
+  background: linear-gradient(135deg, #180d28 0%, #311847 100%);
+}
+
+.bannerEnterprise {
+  background: linear-gradient(135deg, #091a26 0%, #102a3d 100%);
+}
+
+.bannerDistributed {
+  background: linear-gradient(135deg, #1f140e 0%, #382413 100%);
+}
+
+.bannerDefault {
+  background: linear-gradient(135deg, #111b24 0%, #1e293b 100%);
+}
+
+.bannerOverlay {
+  position: absolute;
+  inset: 0;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 2;
+}
+
+.bannerTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.exploreBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  background: $gradient-brand;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: all $transition-base;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.bannerGraphic {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  opacity: 0.35;
+}
+
+.mockNode1 {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+}
+
+.mockLine {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #fa5252, #dd2476);
+}
+
+.mockNode2 {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+}
+
+.cardContent {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.projectCategory {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.projectTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+  line-height: 1.35;
+}
+
+.projectSubtitle {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1.15rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.techTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: auto;
+}
+
+.techChip {
+  font-size: 0.72rem;
+  font-family: $font-mono;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.techChipMore {
+  font-size: 0.72rem;
+  font-family: $font-mono;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  background: var(--bg-card);
+  color: $accent-red;
+  font-weight: 600;
+}

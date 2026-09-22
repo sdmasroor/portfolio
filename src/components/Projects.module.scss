@@ -1,0 +1,418 @@
+@import '../styles/variables.scss';
+
+.filterBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 3.5rem;
+}
+
+.filterBtn {
+  padding: 0.6rem 1.25rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: $text-secondary;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  backdrop-filter: blur(12px);
+  transition: all $transition-fast;
+
+  &:hover {
+    color: #ffffff;
+    background: rgba(22, 34, 60, 0.8);
+    border-color: rgba(0, 242, 254, 0.3);
+  }
+
+  &.activeFilter {
+    color: #05070d;
+    background: linear-gradient(135deg, #00f2fe 0%, #38bdf8 100%);
+    border-color: transparent;
+    font-weight: 600;
+    box-shadow: 0 4px 18px rgba(0, 242, 254, 0.35);
+  }
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+
+  @media (max-width: $bp-laptop) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.projectCard {
+  position: relative;
+  background: rgba(11, 18, 33, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(20px);
+  transition: all $transition-smooth;
+
+  &:hover {
+    background: rgba(16, 26, 48, 0.95);
+    border-color: rgba(0, 242, 254, 0.35);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+
+    .cardGlowOverlay {
+      opacity: 1;
+    }
+
+    .projectTitle {
+      color: $accent-cyan;
+    }
+  }
+}
+
+.cardGlowOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, $accent-cyan, transparent);
+  opacity: 0;
+  transition: opacity $transition-smooth;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1.75rem 0.75rem 1.75rem;
+}
+
+.categoryBadge {
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: $accent-purple;
+  background: rgba(129, 140, 248, 0.1);
+  border: 1px solid rgba(129, 140, 248, 0.25);
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.featuredBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: $font-mono;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+}
+
+.cardBody {
+  padding: 0.5rem 1.75rem 1.25rem 1.75rem;
+}
+
+.projectTitle {
+  font-family: $font-display;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 0.35rem;
+  transition: color $transition-fast;
+}
+
+.projectSubtitle {
+  font-family: $font-mono;
+  font-size: 0.78rem;
+  color: $accent-cyan;
+  margin-bottom: 1rem;
+}
+
+.projectSummary {
+  font-size: 0.94rem;
+  color: $text-secondary;
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.highlightsContainer {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+
+  .highlightTitle {
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: $text-muted;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.65rem;
+  }
+
+  .highlightsList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .highlightItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.84rem;
+    color: $text-primary;
+    line-height: 1.4;
+
+    .highlightIcon {
+      color: $accent-cyan;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+  }
+}
+
+.metricsRow {
+  display: flex;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.metricBadge {
+  flex: 1;
+  min-width: 100px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+
+  .metricValue {
+    font-family: $font-display;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #6ee7b7;
+  }
+
+  .metricLabel {
+    font-size: 0.7rem;
+    color: $text-muted;
+  }
+}
+
+.techTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.5rem;
+}
+
+.techTag {
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  padding: 0.22rem 0.55rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 4px;
+  color: $text-secondary;
+}
+
+.cardFooter {
+  padding: 1rem 1.75rem 1.5rem 1.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.detailBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: $font-mono;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: $accent-cyan;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: #ffffff;
+    transform: translateX(4px);
+  }
+}
+
+// Modal Backdrop
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(16px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modalContainer {
+  background: rgba(11, 18, 33, 0.98);
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  border-radius: 20px;
+  max-width: 720px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1.75rem 2rem 1.25rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  .modalCategory {
+    font-family: $font-mono;
+    font-size: 0.72rem;
+    color: $accent-cyan;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .modalTitle {
+    font-family: $font-display;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 0.25rem;
+  }
+
+  .modalSubtitle {
+    font-family: $font-mono;
+    font-size: 0.82rem;
+    color: $accent-purple;
+    margin-top: 0.25rem;
+  }
+
+  .closeBtn {
+    font-size: 1.8rem;
+    color: $text-muted;
+    line-height: 1;
+
+    &:hover {
+      color: #ffffff;
+    }
+  }
+}
+
+.modalBody {
+  padding: 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.modalSection {
+  h4 {
+    font-family: $font-mono;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: $text-muted;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.05em;
+  }
+
+  p {
+    font-size: 0.96rem;
+    color: $text-primary;
+    line-height: 1.65;
+  }
+}
+
+.modalList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    font-size: 0.92rem;
+    color: $text-primary;
+
+    .modalCheck {
+      color: $accent-cyan;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+  }
+}
+
+.modalMetricsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.modalMetricCard {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+
+  .modalMetricVal {
+    font-family: $font-display;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #6ee7b7;
+  }
+
+  .modalMetricLab {
+    font-size: 0.74rem;
+    color: $text-muted;
+  }
+}
+
+.modalTechStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.modalTechPill {
+  font-family: $font-mono;
+  font-size: 0.76rem;
+  padding: 0.3rem 0.7rem;
+  background: rgba(129, 140, 248, 0.1);
+  border: 1px solid rgba(129, 140, 248, 0.25);
+  border-radius: 6px;
+  color: #ffffff;
+}
+
+.modalFooter {
+  padding: 1.25rem 2rem 1.75rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: flex-end;
+}
